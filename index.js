@@ -22,7 +22,23 @@ function initialize() {
       .then((response) => {
         return response.json();
       })
-      .then((data) => {})
+      .then((data) => {
+        let table = document.querySelector("#tbody");
+        let row = document.createElement("tr");
+        table.appendChild(row);
+
+        // Save button
+        saveBtn = document.createElement("button");
+        saveBtn.type = "button";
+        saveBtn.className = "btn btn-primary save-btn";
+        saveBtn.innerHTML = "Save";
+
+        // Delete button
+        deleteBtn = document.createElement("button");
+        deleteBtn.type = "button";
+        deleteBtn.className = "btn btn-danger delete-btn";
+        deleteBtn.innerHTML = "Delete";
+      })
       .catch((error) => {
         console.log(`Oops, there seems to be an error. Pls try again.`);
       });
