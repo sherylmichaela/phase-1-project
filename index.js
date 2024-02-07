@@ -38,6 +38,27 @@ function initialize() {
         deleteBtn.type = "button";
         deleteBtn.className = "btn btn-danger delete-btn";
         deleteBtn.innerHTML = "Delete";
+
+        // Create columns
+        let c1 = document.createElement("td");
+        let c2 = document.createElement("td");
+        let c3 = document.createElement("td");
+        let c4 = document.createElement("td");
+        let c5 = document.createElement("td");
+
+        // Activity data input into table
+        c1.innerHTML = data.activity;
+        c2.innerHTML = data.type.charAt(0).toUpperCase() + data.type.slice(1);
+        c3.innerHTML = data.accessibility;
+        c4.appendChild(saveBtn);
+        c5.appendChild(deleteBtn);
+
+        // Adding td element with activity info to tr element
+        row.appendChild(c1);
+        row.appendChild(c2);
+        row.appendChild(c3);
+        row.appendChild(c4);
+        row.appendChild(c5);
       })
       .catch((error) => {
         console.log(`Oops, there seems to be an error. Pls try again.`);
