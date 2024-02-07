@@ -39,6 +39,8 @@ function initialize() {
         deleteBtn.className = "btn btn-danger delete-btn";
         deleteBtn.innerHTML = "Delete";
 
+        deleteBtn.addEventListener("click", deleteRow);
+
         // Create columns
         let c1 = document.createElement("td");
         let c2 = document.createElement("td");
@@ -63,5 +65,11 @@ function initialize() {
       .catch((error) => {
         console.log(`Oops, there seems to be an error. Pls try again.`);
       });
+
+    // Delete row function
+    function deleteRow(event) {
+      let td = event.target.parentNode;
+      td.parentNode.remove();
+    }
   });
 }
