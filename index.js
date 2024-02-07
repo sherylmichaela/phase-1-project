@@ -33,6 +33,22 @@ function initialize() {
         saveBtn.className = "btn btn-primary save-btn";
         saveBtn.innerHTML = "Save";
 
+        // Posting data to json server using the save button
+        saveBtn.addEventListener("click", () => {
+          return fetch("http://localhost:3000/data", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+            body: JSON.stringify({
+              activity: data.activity,
+              type: data.type,
+              accessibility: data.accessibility,
+            }),
+          }).then((response) => response.json());
+        });
+
         // Delete button
         deleteBtn = document.createElement("button");
         deleteBtn.type = "button";
