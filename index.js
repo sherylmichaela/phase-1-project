@@ -88,7 +88,7 @@ function initialize() {
 
         // Handling duplicates
         for (let key of keyArray) {
-          if (key !== data.key) {
+          if (data.key !== key) {
             continue;
           }
           return addRow();
