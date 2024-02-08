@@ -85,6 +85,14 @@ function initialize() {
         // Appending/Pushing newly generated key into keyArray which stores the unique keys from activities already requested
         keyArray.push(data.key);
         console.log(keyArray);
+
+        // Handling duplicates
+        for (let key of keyArray) {
+          if (key !== data.key) {
+            continue;
+          }
+          return addRow();
+        }
       })
       .catch((error) => {
         console.log(`Oops, there seems to be an error. Pls try again.`);
