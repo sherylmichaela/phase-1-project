@@ -10,10 +10,9 @@ function initialize() {
   });
 
   // Event listener to access selected number inside dropdown menu
-  dropDown.addEventListener("change", handleSelectChange);
-  function handleSelectChange(event) {
+  dropDown.addEventListener("change", (event) => {
     currentValue = event.target.value;
-  }
+  });
 
   let keyArray = [];
 
@@ -89,6 +88,11 @@ function initialize() {
           console.log(keyArray);
           return addRow();
         }
+        // else {
+        //   do {
+        //     addRow();
+        //   } while (keyFound);
+        // }
       })
       .catch((error) => {
         console.log(`Oops, there seems to be an error. Pls try again.`);
