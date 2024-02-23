@@ -88,11 +88,6 @@ function initialize() {
           console.log(keyArray);
           return addRow();
         }
-        // else {
-        //   do {
-        //     addRow();
-        //   } while (keyFound);
-        // }
       })
       .catch((error) => {
         console.log(`Oops, there seems to be an error. Pls try again.`);
