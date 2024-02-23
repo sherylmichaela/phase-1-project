@@ -32,6 +32,7 @@ function initialize() {
   greenBtn.addEventListener("click", (event) => {
     event.preventDefault();
 
+    // Remove default p element
     if (keyArray.length === 0) {
       let noActivity = document.querySelector(".no-activity-row");
       noActivity.remove();
@@ -55,11 +56,12 @@ function initialize() {
           saveBtn.innerHTML = "Save";
 
           // Posting data to json server using the save button
-          saveBtn.addEventListener("click", () => {
-            // saveBtn.setAttribute("disabled", "disabled");
-            // // saveBtn.innerHTML = "Saved";
+          saveBtn.addEventListener("click", async (event) => {
+            saveBtn = event.target;
+            saveBtn.setAttribute("disabled", "disabled");
+            saveBtn.innerHTML = "Saved";
 
-            return fetch("http://localhost:3000/data", {
+            const response = await fetch("http://localhost:3000/data", {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
@@ -70,7 +72,8 @@ function initialize() {
                 type: data.type,
                 accessibility: data.accessibility,
               }),
-            }).then((response) => response.json());
+            });
+            return await response.json();
           });
 
           // Delete button
