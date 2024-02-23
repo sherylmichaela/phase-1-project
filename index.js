@@ -65,13 +65,15 @@ function initialize() {
           let c3 = document.createElement("td");
           let c4 = document.createElement("td");
           let c5 = document.createElement("td");
+          let c6 = document.createElement("td");
 
           // Activity data input into table
           c1.innerHTML = data.activity;
-          c2.innerHTML = data.type.charAt(0).toUpperCase() + data.type.slice(1);
-          c3.innerHTML = data.accessibility;
-          c4.appendChild(saveBtn);
-          c5.appendChild(deleteBtn);
+          c2.innerHTML = data.participants;
+          c3.innerHTML = data.type.charAt(0).toUpperCase() + data.type.slice(1);
+          c4.innerHTML = data.accessibility;
+          c5.appendChild(saveBtn);
+          c6.appendChild(deleteBtn);
 
           // Adding td element with activity info to tr element
           row.appendChild(c1);
@@ -79,6 +81,7 @@ function initialize() {
           row.appendChild(c3);
           row.appendChild(c4);
           row.appendChild(c5);
+          row.appendChild(c6);
         }
 
         // Appending/Pushing newly generated key into keyArray which stores the unique keys from activities already requested
