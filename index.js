@@ -18,6 +18,12 @@ function initialize() {
 
   greenBtn.addEventListener("click", (event) => {
     event.preventDefault();
+
+    if (keyArray.length === 0) {
+      let noActivity = document.querySelector(".no-activity-row");
+      noActivity.remove();
+    }
+
     let url = `http://www.boredapi.com/api/activity?participants=${currentValue}`;
     fetch(url)
       .then((response) => {
