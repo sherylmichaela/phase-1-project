@@ -92,11 +92,12 @@ function initialize() {
 
         // Appending/Pushing newly generated key into keyArray which stores the unique keys from activities already requested
         let keyFound = keyArray.find((key) => key === data.key);
-        if (!keyFound) {
+
+        do {
           keyArray.push(data.key);
           console.log(keyArray);
           return addRow();
-        }
+        } while (keyFound);
       })
       .catch((error) => {
         console.log(`Oops, there seems to be an error. Pls try again.`);
