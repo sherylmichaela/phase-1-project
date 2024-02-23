@@ -4,6 +4,8 @@ function initialize() {
   let greenBtn = document.querySelector("#greenBtn");
   let dropDown = document.querySelector("#dropdown");
 
+  greenBtn.setAttribute("disabled", "disabled");
+
   // Tooltip
   $(document).ready(function () {
     $('[data-toggle="tooltip"]').tooltip();
@@ -12,6 +14,17 @@ function initialize() {
   // Event listener to access selected number inside dropdown menu
   dropDown.addEventListener("change", (event) => {
     currentValue = event.target.value;
+
+    if (
+      currentValue == 1 ||
+      currentValue == 2 ||
+      currentValue == 3 ||
+      currentValue == 4
+    ) {
+      greenBtn.removeAttribute("disabled");
+    } else {
+      greenBtn.setAttribute("disabled", "disabled");
+    }
   });
 
   let keyArray = [];
