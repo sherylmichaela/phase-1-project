@@ -56,6 +56,9 @@ function initialize() {
 
           // Posting data to json server using the save button
           saveBtn.addEventListener("click", () => {
+            // saveBtn.setAttribute("disabled", "disabled");
+            // // saveBtn.innerHTML = "Saved";
+
             return fetch("http://localhost:3000/data", {
               method: "POST",
               headers: {
@@ -106,11 +109,11 @@ function initialize() {
         // Appending/Pushing newly generated key into keyArray which stores the unique keys from activities already requested
         let keyFound = keyArray.find((key) => key === data.key);
 
-        do {
+        if (!keyFound) {
           keyArray.push(data.key);
           console.log(keyArray);
           return addRow();
-        } while (keyFound);
+        }
       })
       .catch((error) => {
         console.log(`Oops, there seems to be an error. Pls try again.`);
