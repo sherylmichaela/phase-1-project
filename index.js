@@ -57,9 +57,8 @@ function initialize() {
 
           // Posting data to json server using the save button
           saveBtn.addEventListener("click", async (event) => {
-            saveBtn = event.target;
-            saveBtn.setAttribute("disabled", "disabled");
-            saveBtn.innerHTML = "Saved";
+            event.target.setAttribute("disabled", "disabled");
+            event.target.innerHTML = "Saved";
 
             const response = await fetch("http://localhost:3000/data", {
               method: "POST",
