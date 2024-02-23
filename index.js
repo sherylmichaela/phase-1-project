@@ -58,7 +58,8 @@ function initialize() {
           // Posting data to json server using the save button
           saveBtn.addEventListener("click", async (event) => {
             event.target.setAttribute("disabled", "disabled");
-            event.target.innerHTML = "Saved";
+            event.target.innerHTML = "Saved!";
+            $(event.target).popover("show");
 
             const response = await fetch("http://localhost:3000/data", {
               method: "POST",
@@ -68,6 +69,7 @@ function initialize() {
               },
               body: JSON.stringify({
                 activity: data.activity,
+                participants: data.participants,
                 type: data.type,
                 accessibility: data.accessibility,
               }),
