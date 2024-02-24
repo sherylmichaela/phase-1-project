@@ -21,3 +21,7 @@ body {
 .table {
   margin-top: 20px;
 }
+
+.instructions {
+  text-align: left;
+}
